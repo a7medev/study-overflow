@@ -1,3 +1,8 @@
+import { Platform } from 'react-native';
+
+const FONT_FAMILY =
+  Platform.OS === 'android' ? 'IBMPlexSansArabic-' : 'IBM Plex Sans Arabic ';
+
 const theme = {
   colors: {
     primary: '#2C3141',
@@ -8,8 +13,8 @@ const theme = {
     black: '#000000',
   },
   fonts: {
-    regular: 'IBM Plex Sans Arabic Regular',
-    bold: 'IBM Plex Sans Arabic Bold',
+    regular: FONT_FAMILY + 'Regular',
+    bold: FONT_FAMILY + 'Bold',
   },
 };
 
