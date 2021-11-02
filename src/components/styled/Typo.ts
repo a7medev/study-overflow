@@ -17,6 +17,10 @@ export const TypoVariants = {
     font-size: 20px;
     font-family: ${props => props.theme.fonts.bold};
   `,
+  lead: css`
+    font-size: 20px;
+    font-family: ${props => props.theme.fonts.regular};
+  `,
   button: css`
     font-size: 18px;
     font-family: ${props => props.theme.fonts.regular};

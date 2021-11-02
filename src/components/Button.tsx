@@ -1,12 +1,13 @@
 import React from 'react';
 import { TouchableOpacityProps } from 'react-native';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import Typo from './styled/Typo';
 
 interface ButtonProps extends TouchableOpacityProps {
   variant?: 'primary' | 'secondary';
   outlined?: boolean;
+  fullWidth?: boolean;
 }
 
 const ButtonBox = styled.TouchableOpacity<ButtonProps>`
@@ -20,6 +21,11 @@ const ButtonBox = styled.TouchableOpacity<ButtonProps>`
       props.outlined
         ? props.theme.colors[props.variant || 'primary']
         : 'transparent'};
+  ${props =>
+    props.fullWidth &&
+    css`
+      width: 100%;
+    `}
   border-radius: 7px;
   align-items: center;
 `;

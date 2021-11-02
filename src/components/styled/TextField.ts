@@ -11,6 +11,7 @@ const TextField = styled.TextInput.attrs(props => ({
   text-align: right;
   font-family: ${props => props.theme.fonts.regular};
   font-size: 18px;
+  width: 100%;
 `;
 
 export default TextField;
