@@ -3,6 +3,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <React/RCTI18nUtil.h>
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -30,6 +31,10 @@ static void InitializeFlipper(UIApplication *application) {
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
+  
+  RCTI18nUtil *i18nUtil = [RCTI18nUtil sharedInstance];
+  [i18nUtil allowRTL:YES];
+  [i18nUtil forceRTL:YES];
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
@@ -41,6 +46,8 @@ static void InitializeFlipper(UIApplication *application) {
   } else {
       rootView.backgroundColor = [UIColor whiteColor];
   }
+  
+  
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
