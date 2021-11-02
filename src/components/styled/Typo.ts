@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/native';
+import styled, { css, DefaultTheme } from 'styled-components/native';
 
 export const TypoVariants = {
   body: css`
@@ -29,11 +29,12 @@ export const TypoVariants = {
 
 export interface TypoProps {
   variant?: keyof typeof TypoVariants;
+  color?: keyof DefaultTheme['colors'];
 }
 
 const Typo = styled.Text<TypoProps>`
   text-align: left;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors[props.color || 'black']};
 
   /* Variants */
   ${props => TypoVariants[props.variant || 'body']}
