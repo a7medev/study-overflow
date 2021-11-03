@@ -4,6 +4,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <React/RCTI18nUtil.h>
+#import <Firebase.h>
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -35,6 +36,8 @@ static void InitializeFlipper(UIApplication *application) {
   RCTI18nUtil *i18nUtil = [RCTI18nUtil sharedInstance];
   [i18nUtil allowRTL:YES];
   [i18nUtil forceRTL:YES];
+
+  [FIRApp configure];
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge

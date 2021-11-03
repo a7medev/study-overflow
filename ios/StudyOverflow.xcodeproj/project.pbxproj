@@ -16,6 +16,8 @@
 		6172F2D35A4C3AA820D92908 /* libPods-StudyOverflow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-StudyOverflow.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-StudyOverflow-StudyOverflowTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-StudyOverflow-StudyOverflowTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CC805B522732622B00384C77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC805B512732622B00384C77 /* GoogleService-Info.plist */; };
+		CC805B532732622B00384C77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC805B512732622B00384C77 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = StudyOverflow/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-StudyOverflow-StudyOverflowTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StudyOverflow-StudyOverflowTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-StudyOverflow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyOverflow.debug.xcconfig"; path = "Target Support Files/Pods-StudyOverflow/Pods-StudyOverflow.debug.xcconfig"; sourceTree = "<group>"; };
+		CC805B512732622B00384C77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-StudyOverflow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyOverflow.release.xcconfig"; path = "Target Support Files/Pods-StudyOverflow/Pods-StudyOverflow.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F576DABD7E7D42D3A2C6F0F8 /* IBMPlexSansArabic-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSansArabic-Bold.ttf"; path = "../fonts/IBMPlexSansArabic-Bold.ttf"; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 		13B07FAE1A68108700A75B9A /* StudyOverflow */ = {
 			isa = PBXGroup;
 			children = (
+				CC805B512732622B00384C77 /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -250,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC805B532732622B00384C77 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +264,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CC805B522732622B00384C77 /* GoogleService-Info.plist in Resources */,
 				227FC967722349349630D224 /* IBMPlexSansArabic-Bold.ttf in Resources */,
 				0DE60D6CA2074C3E92BF0D55 /* IBMPlexSansArabic-Regular.ttf in Resources */,
 			);
