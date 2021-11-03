@@ -3,11 +3,15 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import AuthScreen from '../screens/AuthScreen';
 import HomeNavigator from './HomeNavigator';
+import useWatchAuthState from '../hooks/useWatchAuthState';
+import { useAppSelector } from '../store/hooks';
 
 const RootNavigator: React.FC = () => {
-  const isSignedIn = false; // TODO: make it dynamic
+  const user = useAppSelector(state => state.auth.user);
 
-  if (!isSignedIn) {
+  useWatchAuthState();
+
+  if (!user) {
     return <AuthScreen />;
   }
 
