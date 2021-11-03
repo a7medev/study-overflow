@@ -1,5 +1,5 @@
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type User = FirebaseAuthTypes.User | null;
 
@@ -10,10 +10,13 @@ const authSlice = createSlice({
     user: null as User,
   },
   reducers: {
-    // TODO: add reducers
+    updateUser: (state, action: PayloadAction<User>) => {
+      state.ready = true;
+      state.user = action.payload;
+    },
   },
 });
 
-export const {} = authSlice.actions;
+export const { updateUser } = authSlice.actions;
 
 export default authSlice.reducer;
