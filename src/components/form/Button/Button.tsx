@@ -1,10 +1,14 @@
 import React from 'react';
-import { ActivityIndicator, TouchableOpacityProps } from 'react-native';
+import {
+  ActivityIndicator,
+  Platform,
+  TouchableOpacityProps,
+} from 'react-native';
 import styled, { css } from 'styled-components/native';
 
 import Typo from '../../styled/Typo';
 
-interface ButtonProps extends TouchableOpacityProps {
+export interface ButtonProps extends TouchableOpacityProps {
   variant?: 'primary' | 'secondary';
   outlined?: boolean;
   fullWidth?: boolean;
@@ -51,7 +55,10 @@ const Button: React.FC<ButtonProps> = ({
       disabled={loading}
       {...props}>
       {loading ? (
-        <ActivityIndicator color={contrastColor} size="small" />
+        <ActivityIndicator
+          color={contrastColor}
+          size={Platform.OS === 'ios' ? 'small' : 20}
+        />
       ) : (
         <Typo variant="button" color={contrastColor}>
           {children}

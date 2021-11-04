@@ -1,15 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 import Image from 'react-native-fast-image';
+import Toast from 'react-native-simple-toast';
+import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
+import auth from '@react-native-firebase/auth';
 
 import Screen from '../components/styled/Screen';
-import Button from '../components/form/Button/Button';
 import Typo from '../components/styled/Typo';
-import Form from '../components/form/Form';
 import FormTextField from '../components/form/TextField/FormTextField';
+import SubmitButton from '../components/form/Button/SubmitButton';
+import FirebaseMessages from '../config/FirebaseMessages';
 
 const initialValues = { email: '', password: '' };
+type Values = typeof initialValues;
+
 const validationSchema = Yup.object({
   email: Yup.string()
     .email('أدخل بريد إلكتروني صالح')
@@ -20,10 +25,24 @@ const validationSchema = Yup.object({
 });
 
 const AuthScreen: React.FC = () => {
+  const [authType, setAuthType] = useState<'login' | 'register'>('login');
   const passwordField = useRef<TextInput>(null);
 
-  const handleSubmit = () => {
-    // TODO: handle submit
+  const handleSubmit = async (
+    data: Values,
+    { setSubmitting }: FormikHelpers<Values>,
+  ) => {
+    try {
+      if (authType === 'login') {
+        await auth().signInWithEmailAndPassword(data.email, data.password);
+      } else {
+        await auth().createUserWithEmailAndPassword(data.email, data.password);
+      }
+    } catch (err) {
+      Toast.show(FirebaseMessages.get(err));
+    }
+
+    setSubmitting(false);
   };
 
   return (
@@ -39,36 +58,50 @@ const AuthScreen: React.FC = () => {
         انضم لمجتمع المذاكرة الخاص بنا
       </Typo>
 
-      <Form
+      <Formik
         onSubmit={handleSubmit}
         initialValues={initialValues}
         validationSchema={validationSchema}>
-        <FormTextField
-          name="email"
-          placeholder="البريد الإلكتروني"
-          keyboardType="email-address"
-          autoCompleteType="email"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          blurOnSubmit={false}
-          onSubmitEditing={() => passwordField.current?.focus()}
-        />
-        <FormTextField
-          name="password"
-          placeholder="كلمة المرور"
-          secureTextEntry
-          autoCompleteType="password"
-          ref={passwordField}
-        />
+        {({ isSubmitting }) => (
+          <>
+            <FormTextField
+              name="email"
+              placeholder="البريد الإلكتروني"
+              keyboardType="email-address"
+              autoCompleteType="email"
+              autoCapitalize="none"
+              autoCorrect={false}
+              returnKeyType="next"
+              blurOnSubmit={false}
+              onSubmitEditing={() => passwordField.current?.focus()}
+            />
+            <FormTextField
+              name="password"
+              placeholder="كلمة المرور"
+              secureTextEntry
+              autoCompleteType="password"
+              ref={passwordField}
+            />
 
-        <Button fullWidth style={styles.signInButton}>
-          تسجيل الدخول
-        </Button>
-        <Button variant="secondary" fullWidth>
-          إنشاء حساب
-        </Button>
-      </Form>
+            <SubmitButton
+              onPress={() => setAuthType('login')}
+              fullWidth
+              loading={isSubmitting && authType === 'login'}
+              disabled={isSubmitting}
+              style={styles.signInButton}>
+              تسجيل الدخول
+            </SubmitButton>
+            <SubmitButton
+              onPress={() => setAuthType('register')}
+              variant="secondary"
+              loading={isSubmitting && authType === 'register'}
+              disabled={isSubmitting}
+              fullWidth>
+              إنشاء حساب
+            </SubmitButton>
+          </>
+        )}
+      </Formik>
     </Screen>
   );
 };
@@ -85,10 +118,6 @@ const styles = StyleSheet.create({
   },
   leadText: {
     marginBottom: 30,
-  },
-  passwordField: {
-    marginTop: 15,
-    marginBottom: 25,
   },
   signInButton: {
     marginBottom: 15,
