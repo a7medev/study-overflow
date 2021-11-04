@@ -1,13 +1,14 @@
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
+import { ActivityIndicator, TouchableOpacityProps } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
-import Typo from './styled/Typo';
+import Typo from '../../styled/Typo';
 
 interface ButtonProps extends TouchableOpacityProps {
   variant?: 'primary' | 'secondary';
   outlined?: boolean;
   fullWidth?: boolean;
+  loading?: boolean;
 }
 
 const ButtonBox = styled.TouchableOpacity<ButtonProps>`
@@ -26,21 +27,36 @@ const ButtonBox = styled.TouchableOpacity<ButtonProps>`
     css`
       width: 100%;
     `}
+  opacity: ${props => (props.disabled && !props.loading ? 0.5 : 1)};
   border-radius: 7px;
   align-items: center;
+  justify-content: center;
+  height: 50px;
 `;
 
 const Button: React.FC<ButtonProps> = ({
   children,
   variant,
   outlined,
+  loading,
   ...props
 }) => {
+  const contrastColor = outlined ? variant : 'white';
+
   return (
-    <ButtonBox variant={variant} outlined={outlined} {...props}>
-      <Typo variant="button" color={outlined ? variant : 'white'}>
-        {children}
-      </Typo>
+    <ButtonBox
+      variant={variant}
+      outlined={outlined}
+      loading={loading}
+      disabled={loading}
+      {...props}>
+      {loading ? (
+        <ActivityIndicator color={contrastColor} size="small" />
+      ) : (
+        <Typo variant="button" color={contrastColor}>
+          {children}
+        </Typo>
+      )}
     </ButtonBox>
   );
 };

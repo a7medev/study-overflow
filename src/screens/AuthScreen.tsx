@@ -4,7 +4,7 @@ import Image from 'react-native-fast-image';
 import * as Yup from 'yup';
 
 import Screen from '../components/styled/Screen';
-import Button from '../components/Button';
+import Button from '../components/form/Button/Button';
 import Typo from '../components/styled/Typo';
 import Form from '../components/form/Form';
 import FormTextField from '../components/form/TextField/FormTextField';
