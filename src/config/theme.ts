@@ -11,6 +11,7 @@ const theme = {
     background: '#FFF1EA',
     white: '#FFFFFF',
     black: '#000000',
+    error: '#dc1c1c',
   },
   fonts: {
     regular: FONT_FAMILY + 'Regular',

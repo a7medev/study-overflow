@@ -1,6 +1,6 @@
 import React from 'react';
 import Screen from '../components/styled/Screen';
-import TextField from '../components/styled/TextField';
+import TextField from '../components/form/TextField/TextField';
 
 import Typo from '../components/styled/Typo';
 

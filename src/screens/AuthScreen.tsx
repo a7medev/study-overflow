@@ -4,7 +4,7 @@ import Image from 'react-native-fast-image';
 
 import Screen from '../components/styled/Screen';
 import Button from '../components/Button';
-import TextField from '../components/styled/TextField';
+import TextField from '../components/form/TextField/TextField';
 import Typo from '../components/styled/Typo';
 
 const AuthScreen: React.FC = () => {
