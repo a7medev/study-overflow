@@ -1,13 +1,13 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useRef } from 'react';
+import { StyleSheet, TextInput } from 'react-native';
 import Image from 'react-native-fast-image';
 import * as Yup from 'yup';
 
 import Screen from '../components/styled/Screen';
 import Button from '../components/Button';
 import Typo from '../components/styled/Typo';
-import FormTextField from '../components/form/TextField/FormTextField';
 import Form from '../components/form/Form';
+import FormTextField from '../components/form/TextField/FormTextField';
 
 const initialValues = { email: '', password: '' };
 const validationSchema = Yup.object({
@@ -20,6 +20,8 @@ const validationSchema = Yup.object({
 });
 
 const AuthScreen: React.FC = () => {
+  const passwordField = useRef<TextInput>(null);
+
   const handleSubmit = () => {
     // TODO: handle submit
   };
@@ -41,11 +43,23 @@ const AuthScreen: React.FC = () => {
         onSubmit={handleSubmit}
         initialValues={initialValues}
         validationSchema={validationSchema}>
-        <FormTextField name="email" placeholder="البريد الإلكتروني" />
+        <FormTextField
+          name="email"
+          placeholder="البريد الإلكتروني"
+          keyboardType="email-address"
+          autoCompleteType="email"
+          autoCapitalize="none"
+          autoCorrect={false}
+          returnKeyType="next"
+          blurOnSubmit={false}
+          onSubmitEditing={() => passwordField.current?.focus()}
+        />
         <FormTextField
           name="password"
           placeholder="كلمة المرور"
           secureTextEntry
+          autoCompleteType="password"
+          ref={passwordField}
         />
 
         <Button fullWidth style={styles.signInButton}>
