@@ -32,7 +32,7 @@ const ButtonBox = styled.TouchableOpacity<ButtonProps>`
       width: 100%;
     `}
   opacity: ${props => (props.disabled && !props.loading ? 0.5 : 1)};
-  border-radius: 7px;
+  border-radius: ${props => props.theme.borderRadii.medium}px;
   align-items: center;
   justify-content: center;
   height: 50px;

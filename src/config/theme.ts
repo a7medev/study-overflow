@@ -17,6 +17,11 @@ const theme = {
     regular: FONT_FAMILY + 'Regular',
     bold: FONT_FAMILY + 'Bold',
   },
+  borderRadii: {
+    small: 4,
+    medium: 7,
+    large: 15,
+  },
 };
 
 export type Theme = typeof theme;

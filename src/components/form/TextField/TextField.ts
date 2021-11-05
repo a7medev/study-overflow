@@ -12,7 +12,7 @@ const TextField = styled.TextInput.attrs(props => ({
   color: ${props => props.theme.colors.black};
   border: 2px solid
     ${props => props.theme.colors[props.error ? 'error' : 'secondaryLight']};
-  border-radius: 7px;
+  border-radius: ${props => props.theme.borderRadii.medium}px;
   text-align: right;
   font-family: ${props => props.theme.fonts.regular};
   font-size: 18px;
