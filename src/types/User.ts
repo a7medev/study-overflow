@@ -1,4 +1,4 @@
-interface User {
+export interface User {
   uid: string;
   name: string | null;
   photo: string | null;
@@ -8,5 +8,3 @@ interface User {
   isAnonymous: boolean;
   provider: string;
 }
-
-export default User;

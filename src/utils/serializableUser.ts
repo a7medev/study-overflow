@@ -1,6 +1,6 @@
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 
-import User from '../types/User';
+import { User } from '../types/User';
 
 const serializableUser = (user: FirebaseAuthTypes.User | null): User | null => {
   if (!user) {
