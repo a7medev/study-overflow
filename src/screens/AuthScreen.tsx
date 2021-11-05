@@ -40,9 +40,8 @@ const AuthScreen: React.FC = () => {
       }
     } catch (err) {
       Toast.show(FirebaseMessages.get(err));
+      setSubmitting(false);
     }
-
-    setSubmitting(false);
   };
 
   return (
