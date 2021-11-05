@@ -36,9 +36,10 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Ionicons.ttf</string>
 		<string>IBMPlexSansArabic-Bold.ttf</string>
 		<string>IBMPlexSansArabic-Regular.ttf</string>
 	</array>
