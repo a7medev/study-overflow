@@ -19,7 +19,7 @@ const QUESTION: Question = {
   answersCount: 7,
 };
 
-const HomeScreen: React.FC = () => {
+const QuestionsFeedScreen: React.FC = () => {
   const name = useAppSelector(state => state.auth.user?.name);
 
   return (
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default QuestionsFeedScreen;

@@ -3,10 +3,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from 'styled-components/native';
 
-import HomeScreen from '../screens/HomeScreen';
+import QuestionsNavigator from './QuestionsNavigator';
 
 export type HomeParamList = {
-  Home: undefined;
+  Questions: undefined;
 };
 
 const Tab = createBottomTabNavigator<HomeParamList>();
@@ -27,12 +27,12 @@ const HomeNavigator: React.FC = () => {
         },
       }}>
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="Questions"
+        component={QuestionsNavigator}
         options={{
-          tabBarLabel: 'الرئيسية',
+          tabBarLabel: 'الأسئلة',
           tabBarIcon: props => (
-            <Ionicons {...props} name={icon('home', props)} />
+            <Ionicons {...props} name={icon('albums', props)} />
           ),
         }}
       />
