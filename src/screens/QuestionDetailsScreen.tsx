@@ -24,7 +24,9 @@ const QuestionDetailsScreen: React.FC<
           <Typo variant="h2" style={styles.title}>
             {question.title}
           </Typo>
-          <Typo color="gray">٢٠ أكتوبر ٢٠٢١</Typo>
+          <Typo color="gray" accessibilityHint="تاريخ النشر">
+            ٢٠ أكتوبر ٢٠٢١
+          </Typo>
         </View>
       </View>
 

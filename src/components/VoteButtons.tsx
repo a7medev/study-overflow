@@ -19,16 +19,22 @@ const VoteButtons: React.FC<VoteButtonsProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onUpvote}>
+      <TouchableOpacity
+        onPress={onUpvote}
+        accessibilityLabel="تصويت إيجابي"
+        accessibilityState={{ selected: status === 'up' }}>
         <Icon
           name="caret-up"
           color={status === 'up' ? 'primary' : 'grayLight'}
         />
       </TouchableOpacity>
 
-      <Typo>{votes}</Typo>
+      <Typo accessibilityHint="عدد الأصوات">{votes}</Typo>
 
-      <TouchableOpacity onPress={onDownvote}>
+      <TouchableOpacity
+        onPress={onDownvote}
+        accessibilityLabel="تصويت سلبي"
+        accessibilityState={{ selected: status === 'down' }}>
         <Icon
           name="caret-down"
           color={status === 'down' ? 'primary' : 'grayLight'}
