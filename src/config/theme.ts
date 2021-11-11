@@ -10,6 +10,8 @@ const theme = {
     secondaryLight: '#CE8F6C',
     background: '#FFF1EA',
     white: '#FFFFFF',
+    grayLight: '#c4b8b4',
+    gray: '#78716e',
     black: '#000000',
     error: '#dc1c1c',
   },

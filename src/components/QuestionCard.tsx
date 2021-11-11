@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 import Card from './styled/Card';
 import Typo from './styled/Typo';
+import Icon from './Icon';
 import { Question } from '../types/Question';
-import { useTheme } from 'styled-components/native';
+import { QuestionsParamList } from '../navigation/QuestionsNavigator';
 
 export interface IconWithCountProps {
   icon: string;
@@ -18,14 +19,12 @@ const IconWithCount: React.FC<IconWithCountProps> = ({
   count,
   label,
 }) => {
-  const theme = useTheme();
-
   return (
     <View style={styles.iconWithCount}>
-      <Ionicons
+      <Icon
         name={icon}
-        size={25}
-        color={theme.colors.secondary}
+        size="sm"
+        color="secondary"
         style={styles.icon}
         accessibilityLabel={label}
       />
@@ -41,8 +40,12 @@ interface QuestionCardProps {
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
+  const navigation = useNavigation<NavigationProp<QuestionsParamList>>();
+
   return (
-    <Card style={styles.card}>
+    <Card
+      style={styles.card}
+      onPress={() => navigation.navigate('QuestionDetails', question)}>
       <Typo variant="h3" style={styles.space}>
         {question.title}
       </Typo>
