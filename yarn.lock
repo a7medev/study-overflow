@@ -1534,7 +1534,7 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
 
-"@react-native-firebase/app@^13.0.0":
+"@react-native-firebase/app@13.0.0":
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-13.0.0.tgz#101dbc087fdb15e136c5c816d71f3baecc01ba85"
   integrity sha512-jG/rd33Ask6+bYmQdQYkSLeIPwEWI0XlRcKaA2nj7TEFSgw66OvANgLzdxRwCXf2Qo3qfHmfBFtkrz6aQRzGbg==
@@ -1543,10 +1543,15 @@
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^13.0.0":
+"@react-native-firebase/auth@13.0.0":
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-13.0.0.tgz#d11edcfa3f259824972b98dcd1092558ff43e9ac"
   integrity sha512-W71Z0qRmVg8O9n8arpC0DdPjMDPpHT1+0xBF4flWcZvFe5ef2Al+s5yMDB0YT+jbeF14p9kPuqlG6aS1ssBsqw==
+
+"@react-native-firebase/firestore@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-13.0.0.tgz#9a397f30cbae11bdad00bb22d0667da5ba4c84ee"
+  integrity sha512-Za2tmriPgzqt+DBz8QhRNbDPEHvli0+/Abi4CEvTRymElLyKmQ7qV5jSMcmBtCoPPOtJkQCYXd/5+CH3tulp8A==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
@@ -6317,7 +6322,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.7.2:
+prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -6419,6 +6424,19 @@ react-native-fast-image@^8.5.11:
   version "8.5.11"
   resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.5.11.tgz#e3dc969d0e4e8df026646bf18194465aa55cbc2b"
   integrity sha512-cNW4bIJg3nvKaheG8vGMfqCt5LMWX9MS5+wMudgKIHbGO51spRr4sgnlhVgwHLcZ5aeNOVJ8CPRxDIWKRq/0QA==
+
+react-native-iphone-x-helper@^1.0.3:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
+  integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
+
+react-native-keyboard-aware-scroll-view@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.9.5.tgz#e2e9665d320c188e6b1f22f151b94eb358bf9b71"
+  integrity sha512-XwfRn+T/qBH9WjTWIBiJD2hPWg0yJvtaEw6RtPCa5/PYHabzBaWxYBOl0usXN/368BL1XktnZPh8C2lmTpOREA==
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-iphone-x-helper "^1.0.3"
 
 react-native-safe-area-context@^3.3.2:
   version "3.3.2"

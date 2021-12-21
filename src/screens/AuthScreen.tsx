@@ -1,5 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
 import Image from 'react-native-fast-image';
 import Toast from 'react-native-simple-toast';
 import { Formik, FormikHelpers } from 'formik';
@@ -20,7 +25,7 @@ const validationSchema = Yup.object({
     .email('أدخل بريد إلكتروني صالح')
     .required('هذا الحقل مطلوب'),
   password: Yup.string()
-    .min(6, 'يجب أن تكون على الأقل ٦ حروف')
+    .min(6, 'يجب ألا تقل عن ٦ أحرف')
     .required('هذا الحقل مطلوب'),
 });
 
@@ -46,61 +51,65 @@ const AuthScreen: React.FC = () => {
 
   return (
     <Screen style={styles.screen}>
-      <Image
-        resizeMode="contain"
-        source={require('../assets/images/studying-girl.png')}
-        style={styles.image}
-      />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={styles.fullHeight}>
+        <Image
+          resizeMode="contain"
+          source={require('../assets/images/studying-girl.png')}
+          style={styles.image}
+        />
 
-      <Typo variant="h1">مرحبًا بك!</Typo>
-      <Typo variant="lead" style={styles.leadText}>
-        انضم لمجتمع المذاكرة الخاص بنا
-      </Typo>
+        <Typo variant="h1">مرحبًا بك!</Typo>
+        <Typo variant="lead" style={styles.leadText}>
+          انضم لمجتمع المذاكرة الخاص بنا
+        </Typo>
 
-      <Formik
-        onSubmit={handleSubmit}
-        initialValues={initialValues}
-        validationSchema={validationSchema}>
-        {({ isSubmitting }) => (
-          <>
-            <FormTextField
-              name="email"
-              placeholder="البريد الإلكتروني"
-              keyboardType="email-address"
-              autoCompleteType="email"
-              autoCapitalize="none"
-              autoCorrect={false}
-              returnKeyType="next"
-              blurOnSubmit={false}
-              onSubmitEditing={() => passwordField.current?.focus()}
-            />
-            <FormTextField
-              name="password"
-              placeholder="كلمة المرور"
-              secureTextEntry
-              autoCompleteType="password"
-              ref={passwordField}
-            />
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={initialValues}
+          validationSchema={validationSchema}>
+          {({ isSubmitting }) => (
+            <>
+              <FormTextField
+                name="email"
+                placeholder="البريد الإلكتروني"
+                keyboardType="email-address"
+                autoCompleteType="email"
+                autoCapitalize="none"
+                autoCorrect={false}
+                returnKeyType="next"
+                blurOnSubmit={false}
+                onSubmitEditing={() => passwordField.current?.focus()}
+              />
+              <FormTextField
+                name="password"
+                placeholder="كلمة المرور"
+                secureTextEntry
+                autoCompleteType="password"
+                ref={passwordField}
+              />
 
-            <SubmitButton
-              onPress={() => setAuthType('login')}
-              fullWidth
-              loading={isSubmitting && authType === 'login'}
-              disabled={isSubmitting}
-              style={styles.signInButton}>
-              تسجيل الدخول
-            </SubmitButton>
-            <SubmitButton
-              onPress={() => setAuthType('register')}
-              variant="secondary"
-              loading={isSubmitting && authType === 'register'}
-              disabled={isSubmitting}
-              fullWidth>
-              إنشاء حساب
-            </SubmitButton>
-          </>
-        )}
-      </Formik>
+              <SubmitButton
+                onPress={() => setAuthType('login')}
+                fullWidth
+                loading={isSubmitting && authType === 'login'}
+                disabled={isSubmitting}
+                style={styles.signInButton}>
+                تسجيل الدخول
+              </SubmitButton>
+              <SubmitButton
+                onPress={() => setAuthType('register')}
+                variant="secondary"
+                loading={isSubmitting && authType === 'register'}
+                disabled={isSubmitting}
+                fullWidth>
+                إنشاء حساب
+              </SubmitButton>
+            </>
+          )}
+        </Formik>
+      </KeyboardAvoidingView>
     </Screen>
   );
 };
@@ -109,6 +118,9 @@ const styles = StyleSheet.create({
   screen: {
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  fullHeight: {
+    flex: 1,
   },
   image: {
     width: 275,

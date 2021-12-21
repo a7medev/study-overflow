@@ -1,10 +1,12 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import Typo from '../components/styled/Typo';
 import { QuestionsParamList } from '../navigation/QuestionsNavigator';
+import Typo from '../components/styled/Typo';
 import VoteButtons from '../components/VoteButtons';
+import AddAnswer from '../components/AddAnswer';
 
 const QuestionDetailsScreen: React.FC<
   NativeStackScreenProps<QuestionsParamList, 'QuestionDetails'>
@@ -12,7 +14,9 @@ const QuestionDetailsScreen: React.FC<
   const question = route.params;
 
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
+    <KeyboardAwareScrollView
+      extraScrollHeight={30}
+      contentContainerStyle={styles.screen}>
       <View style={styles.header}>
         <VoteButtons
           votes={20}
@@ -32,8 +36,12 @@ const QuestionDetailsScreen: React.FC<
 
       <Typo style={styles.content}>{question.content}</Typo>
 
-      <Typo variant="h3">الاجابات</Typo>
-    </ScrollView>
+      <Typo variant="h3" style={styles.title}>
+        الاجابات
+      </Typo>
+
+      <AddAnswer questionId={question.id} />
+    </KeyboardAwareScrollView>
   );
 };
 
