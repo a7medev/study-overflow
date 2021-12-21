@@ -9,7 +9,6 @@ import Image from 'react-native-fast-image';
 import Toast from 'react-native-simple-toast';
 import { Formik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import auth from '@react-native-firebase/auth';
 
 import Screen from '../components/styled/Screen';
 import Typo from '../components/styled/Typo';
@@ -39,9 +38,9 @@ const AuthScreen: React.FC = () => {
   ) => {
     try {
       if (authType === 'login') {
-        await auth().signInWithEmailAndPassword(data.email, data.password);
+        // TODO: Sign in
       } else {
-        await auth().createUserWithEmailAndPassword(data.email, data.password);
+        // TODO: Register
       }
     } catch (err) {
       Toast.show(FirebaseMessages.get(err));

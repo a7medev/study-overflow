@@ -1,6 +1,5 @@
 import React from 'react';
 import * as Yup from 'yup';
-import firestore from '@react-native-firebase/firestore';
 import Toast from 'react-native-simple-toast';
 import type { FormikHelpers } from 'formik';
 
@@ -30,13 +29,7 @@ const AddAnswer: React.FC<AddAnswerProps> = ({ questionId }) => {
     { setSubmitting }: FormikHelpers<Values>,
   ) => {
     try {
-      await firestore()
-        .collection('answers')
-        .add({
-          ...values,
-          questionId,
-          createdAt: firestore.FieldValue.serverTimestamp(),
-        });
+      // TODO: add answer
     } catch (err) {
       Toast.show(FirebaseMessages.get(err, 'فشل إرسال الإجابة'));
     } finally {

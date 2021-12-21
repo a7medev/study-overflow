@@ -4,7 +4,6 @@ import { enableFreeze } from 'react-native-screens';
 
 import AuthScreen from '../screens/AuthScreen';
 import HomeNavigator from './HomeNavigator';
-import useWatchAuthState from '../hooks/useWatchAuthState';
 import { useAppSelector } from '../store/hooks';
 import { useTheme } from 'styled-components/native';
 
@@ -28,8 +27,6 @@ const RootNavigator: React.FC = () => {
     }),
     [theme],
   );
-
-  useWatchAuthState();
 
   if (!user) {
     return <AuthScreen />;

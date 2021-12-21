@@ -58,8 +58,3 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-
-# Firebase Config
-GoogleService-Info.plist
-google-services.json
-firebase-debug.log
