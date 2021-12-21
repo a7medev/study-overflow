@@ -31,7 +31,11 @@ const AddAnswer: React.FC<AddAnswerProps> = ({ questionId }) => {
     try {
       await firestore()
         .collection('answers')
-        .add({ ...values, questionId });
+        .add({
+          ...values,
+          questionId,
+          createdAt: firestore.FieldValue.serverTimestamp(),
+        });
     } catch (err) {
       Toast;
     } finally {
