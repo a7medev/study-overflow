@@ -1,0 +1,31 @@
+{
+  "name": "@studyoverflow/app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-native": "*",
+    "@testing-library/react-native": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*",
+    "styled-components": "*",
+    "react-redux": "*",
+    "yup": "*",
+    "react-native-simple-toast": "*",
+    "formik": "*",
+    "react-native-vector-icons": "*",
+    "@react-navigation/native": "*",
+    "react-native-safe-area-context": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "@react-navigation/native-stack": "*",
+    "react-native-screens": "*",
+    "react-native-fast-image": "*",
+    "react-native-keyboard-aware-scroll-view": "*",
+    "@reduxjs/toolkit": "*"
+  },
+  "devDependencies": {
+    "@types/react-native-vector-icons": "*",
+    "@types/styled-components": "*",
+    "@types/styled-components-react-native": "*"
+  }
+}
