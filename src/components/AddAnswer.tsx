@@ -7,6 +7,7 @@ import type { FormikHelpers } from 'formik';
 import Form from './form/Form';
 import FormTextField from './form/TextField/FormTextField';
 import SubmitButton from './form/Button/SubmitButton';
+import FirebaseMessages from '../config/FirebaseMessages';
 
 interface AddAnswerProps {
   questionId: string;
@@ -37,7 +38,7 @@ const AddAnswer: React.FC<AddAnswerProps> = ({ questionId }) => {
           createdAt: firestore.FieldValue.serverTimestamp(),
         });
     } catch (err) {
-      Toast;
+      Toast.show(FirebaseMessages.get(err, 'فشل إرسال الإجابة'));
     } finally {
       setSubmitting(false);
     }
