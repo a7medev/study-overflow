@@ -1,6 +1,6 @@
 {
-  "root": "apps/studyoverflow-e2e",
-  "sourceRoot": "apps/studyoverflow-e2e/src",
+  "root": "apps/mobile-e2e",
+  "sourceRoot": "apps/mobile-e2e/src",
   "projectType": "application",
   "targets": {
     "build-ios": {
@@ -51,10 +51,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/studyoverflow-e2e/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/mobile-e2e/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["studyoverflow"]
+  "implicitDependencies": ["mobile"]
 }

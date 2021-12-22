@@ -1,7 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "studyoverflow": "apps/studyoverflow",
-    "studyoverflow-e2e": "apps/studyoverflow-e2e"
+    "mobile": "apps/mobile",
+    "mobile-e2e": "apps/mobile-e2e"
   }
 }

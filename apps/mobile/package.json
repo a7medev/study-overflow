@@ -21,7 +21,10 @@
     "react-native-screens": "*",
     "react-native-fast-image": "*",
     "react-native-keyboard-aware-scroll-view": "*",
-    "@reduxjs/toolkit": "*"
+    "@reduxjs/toolkit": "*",
+    "@types/react-native-vector-icons": "*",
+    "@types/styled-components": "*",
+    "@types/styled-components-react-native": "*"
   },
   "devDependencies": {
     "@types/react-native-vector-icons": "*",
