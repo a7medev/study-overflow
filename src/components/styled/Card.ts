@@ -1,9 +1,9 @@
 import styled from 'styled-components/native';
 
-const Card = styled.Pressable`
-  background-color: ${props => props.theme.colors.white};
-  border-radius: ${props => props.theme.borderRadii.medium}px;
-  padding: 15px;
-`;
+const Card = styled.Pressable(props => ({
+  backgroundColor: props.theme.colors.white,
+  borderRadius: props.theme.borderRadii.medium,
+  padding: 15,
+}));
 
 export default Card;
